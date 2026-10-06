@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Kitchen Console</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <header class="top">
+    <div>
+      <h1>Smart Kitchen Console</h1>
+      <p class="kitchen">Central Hostel Mess, serving about 900 meals a day</p>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="overview" role="tab">Overview</button>
+      <button class="tab" data-tab="log" role="tab">Log waste</button>
+      <button class="tab" data-tab="surplus" role="tab">Surplus and NGOs</button>
+    </nav>
+  </header>
+
+  <!-- OVERVIEW -->
+  <main id="overview" class="view active">
+    <section class="kpis" id="kpis"></section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Waste this week</h2>
+        <p class="hint">Kilograms of food waste per day.</p>
+        <div class="bars" id="bars"></div>
+      </section>
+
+      <section class="card">
+        <h2>Tomorrow's cook plan</h2>
+        <p class="hint">Suggested from past demand, menu, and the exam-week timetable.</p>
+        <table id="plan"></table>
+      </section>
+    </div>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Most wasted dishes</h2>
+        <p class="hint">With a menu change we suggest for each.</p>
+        <div id="dishes"></div>
+      </section>
+
+      <section class="card">
+        <h2>Use these ingredients first</h2>
+        <p class="hint">Stock nearing its expiry date.</p>
+        <div id="expiring"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- LOG WASTE -->
+  <main id="log" class="view">
+    <div class="grid two">
+      <section class="card">
+        <h2>Photograph the leftovers</h2>
+        <p class="hint">Take or upload a photo. The AI suggests the dish and quantity, you confirm.</p>
+        <label class="drop" id="drop">
+          <input type="file" id="photo" accept="image/*" capture="environment" hidden>
+          <img id="preview" alt="Preview of the uploaded leftovers" hidden>
+          <span id="dropText">Tap to add a photo</span>
+        </label>
+        <button class="btn ghost" id="sample">Use a sample plate</button>
+        <button class="btn" id="analyse" disabled>Analyse photo</button>
+      </section>
+
+      <section class="card">
+        <h2>What the AI found</h2>
+        <div id="result" class="empty">Add a photo and select Analyse photo to see the suggestion here.</div>
+        <h2 class="sp">Logged today</h2>
+        <div id="logged"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- SURPLUS -->
+  <main id="surplus" class="view">
+    <section class="card">
+      <h2>Surplus ready for pickup</h2>
+      <p class="hint">Each listing shows how long the food stays safe to collect.</p>
+      <div class="listings" id="listings"></div>
+    </section>
+
+    <section class="card">
+      <h2>Where this week's waste went</h2>
+      <p class="hint">Every waste type goes to its best use.</p>
+      <div id="streams"></div>
+    </section>
+  </main>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
